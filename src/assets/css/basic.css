@@ -1,0 +1,198 @@
+/*滚动条 start*/
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #ccc;
+}
+
+/*滚动条 end*/
+/*header和footer的padding*/
+.el-header {
+  padding: 0 !important;
+  height: 110px;
+}
+
+.el-main {
+  padding: 0 !important;
+  margin-top: 40px;
+  /*margin-bottom: 20px;*/
+  background-color: #f4f4f4;
+}
+
+.el-footer {
+  padding: 0 !important;
+}
+
+/*卡片头字体样式 */
+.clearfix span {
+  font-size: 17px;
+}
+
+/*商品块样式*/
+.goods-card {
+  /*width: 100%;*/
+  height: 350px;
+  margin-top: 5px;
+  /*margin-bottom: 5px;
+   background-color: #ebb563;*/
+}
+
+.goods-card:hover {
+  border: #FF6666 solid 1px;
+}
+
+/*商品卡片---照片*/
+.image {
+  width: 100%;
+  height: 250px;
+  cursor: pointer;
+}
+
+.good_card_describe {
+  /*padding-left: 10px;*/
+  /*padding-right: 10px;*/
+  height: 80px;
+  cursor: pointer;
+}
+
+.cardTitleFont :hover {
+  color: #FF6666;
+}
+
+.cardMoney {
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+  float: left;
+}
+
+/*商品卡片---标题*/
+.cardTitleFont span {
+  font-size: 14px;
+}
+
+/*商品卡片---销售数量*/
+.cardSellNum {
+  float: right;
+}
+
+/*商品卡片---2级标题*/
+.levelTitle2 {
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "PingFang SC";
+  font-weight: bolder;
+}
+
+/*商品卡片---二级标题前*/
+/*.levelTitlebar {
+  position: relative;
+  background-color: #FF6666;
+  padding-left: 10px;
+  margin-top: 5px;
+  line-height: 48px;
+  font-size: 20px;
+  margin-left: 5px;
+}*/
+.title_box {
+  padding: 5px;
+}
+
+.title_span {
+  padding: 5px 7px;
+  border-radius: 50%;
+  background: #e71837;
+  color: white;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/*区域块---分割线*/
+.line {
+  height: 1px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+/*区域块*/
+.blockDiv {
+  background-color: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+/*区域块----第一个块*/
+.blockDivTop {
+  margin-top: 10px;
+}
+
+/*中间宽度*/
+.width1024 {
+  width: 1220px;
+  margin: 0 auto;
+  /*background-color: red;*/
+}
+
+/*上间距10*/
+.marg_top10 {
+  margin-top: 10px;
+}
+
+/*下间距10*/
+.marg_bot10 {
+  margin-bottom: 10px;
+}
+
+/*上传主图样式-start*/
+.avatar-uploader {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.avatar-uploader:hover {
+  border-color: #409EFF;
+}
+
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+
+.avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
+
+/*上传主图样式-end*/
