@@ -2,17 +2,15 @@
   <div id="aNews">
     <el-row>
       <el-col :span="24">
-        -----------------------------
         <div style="text-align: center;">
           {{anews.title}}
         </div>
         <div style="text-align: right;color: #8c939d;">
           {{anews.insertTime}}
         </div>
-        <div style="padding: 10px;">
-          <div v-html="anews.context"></div>
+        <div style="padding: 10px 10px;">
+          <div class="news_context" v-html="anews.context"></div>
         </div>
-        -----------------------------
       </el-col>
     </el-row>
 
@@ -28,9 +26,9 @@
     data() {
       return {
         anews: {
-          title: '标题',
-          context: '<h3>啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈</h3>',
-          insertTime: new Date(),
+          title: '',
+          context: '',
+          insertTime: '',
         },
       }
     },
@@ -56,6 +54,19 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+  .news_context img {
+    width: 100% !important;
+  }
 
+  .news_context {
+    p {
+      img {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+      }
+    }
+  }
 </style>

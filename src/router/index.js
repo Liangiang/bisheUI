@@ -19,6 +19,7 @@ import ShoppingCar from '@/page/ShoppingCar/ShoppingCar'//顾客-购物车
 import beforeUserOrder from '@/page/order/beforeUserOrder'//顾客-立即购买
 import userOrder from '@/page/order/userOrder'//顾客-订单中心
 import pay from '@/page/pay/pay'//顾客-支付页面
+import addReport from '@/page/report/add'//顾客-支付页面
 // import userInfo from '@/page/userInfo/userInfo'//顾客-顾客信息页面
 
 import shopRegister from '@/page/register/shopRegister'//店铺-注册
@@ -150,6 +151,26 @@ export const routes = [
       {
         path: "/pay",
         component: pay,
+        isPage: true,
+        hidden: true,
+        name: "",
+        meta: {
+          keepAlive: true
+        }
+      },
+    ]
+  },
+//顾客=============添加报告---ShoppingCart
+  {
+    path: "/addReport",
+    component: Home,
+    name: "生成报告",
+    isPage: true,
+    hidden: true,
+    children: [
+      {
+        path: "/addReport",
+        component: addReport,
         isPage: true,
         hidden: true,
         name: "",

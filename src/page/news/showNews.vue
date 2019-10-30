@@ -103,6 +103,7 @@
             pageSize: this.pageSize,
           }
         }
+        console.log('所有文章入参------', params);
         axios.post("/api/health/selAll", params).then(res => {
           console.log('所有文章', res.data);
           this.loading = false;

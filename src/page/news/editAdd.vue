@@ -7,7 +7,7 @@
             <el-input v-model="ArticleForm.title"></el-input>
           </el-form-item>
           <el-form-item label="好文内容" prop="context">
-
+            <vue-editor v-model="ArticleForm.context"/>
           </el-form-item>
           <el-form-item v-if="flag==0">
             <el-button type="primary" icon="el-icon-check" @click="addAnews(ArticleForm)">上传</el-button>
@@ -25,10 +25,13 @@
 
 <script>
   import axios from 'axios';
+  // Basic Use - Covers most scenarios
+  import {VueEditor} from "vue2-editor";
 
   export default {
     name: "editAdd",
     props: ['hId', 'flag'],
+    components: {VueEditor},
     data() {
       return {
         ArticleForm: {
@@ -37,13 +40,20 @@
           mId: sessionStorage.getItem("userId"),
         },
         rules: {
-          gName: [
+          title: [
             {
               required: true, //是否必填
               message: "标题不能为空", //规则
               trigger: "blur" //何事件触发
             },
           ],//商品名称
+          context: [
+            {
+              required: true, //是否必填
+              message: "文章内容不能为空", //规则
+              trigger: "blur" //何事件触发
+            },
+          ],
         },
       }
     },
@@ -110,5 +120,10 @@
 </script>
 
 <style scoped>
+  /*@import "~vue2-editor/dist/vue2-editor.css";
+  !* Import the Quill styles you want *!
+  @import '~quill/dist/quill.core.css';
+  @import '~quill/dist/quill.bubble.css';
+  @import '~quill/dist/quill.snow.css';*/
 
 </style>

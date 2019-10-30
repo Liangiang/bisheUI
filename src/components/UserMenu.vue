@@ -39,10 +39,10 @@
             href: '/userOrder',
             name: '我的订单'
           },
-          /*{
-            href: '/userRegister',
-            name: '审核店铺'
-          },*/
+          {
+            href: '/addReport',
+            name: '生成报告'
+          },
 
         ],
       }
@@ -67,11 +67,11 @@
           this.activeIndex = 2;
           return;
         }
-        /*if (to.path == '/govermentProjectList') {
+        if (to.path == '/addReport') {
           this.activeIndex = 3;
           return;
         }
-        if (to.path == '/policyList') {
+        /*if (to.path == '/policyList') {
           this.activeIndex = 4;
         }*/
       }
