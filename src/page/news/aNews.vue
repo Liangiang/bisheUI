@@ -1,5 +1,5 @@
 <template>
-  <div id="aNews">
+  <div id="aNews" v-loading="loading">
     <el-row>
       <el-col :span="24">
         <div style="text-align: center;">
@@ -25,6 +25,7 @@
     props: ['hId'],
     data() {
       return {
+        loading:true,
         anews: {
           title: '',
           context: '',
@@ -37,11 +38,13 @@
     },
     methods: {
       getANews() {
+        this.loading=true;
         let params = {
           hId: this.hId,
         };
         axios.post("/api/health/selA", params).then(res => {
           console.log('健康文章详情', res.data);
+          this.loading=false;
           this.anews = res.data;
         });
       },
@@ -68,5 +71,14 @@
         max-height: 100%;
       }
     }
+  }
+  img {
+    border-style: none;
+    width: 100% !important;
+  }
+  .el-dialog__body{
+    max-height: 455px !important;
+    min-height: 300px !important;
+    overflow: auto;
   }
 </style>

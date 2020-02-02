@@ -16,6 +16,14 @@
           :data="userOrderData"
           tooltip-effect="dark"
           style="width: 100%">
+
+          <el-table-column type="expand">
+            <template slot-scope="scope">
+              <div v-if="scope.row.oStatus==5">
+                退货理由：{{scope.row.uRecause}}
+              </div>
+            </template>
+          </el-table-column>
           <el-table-column
             label="商品信息"
             fixed
@@ -70,7 +78,7 @@
                 @click.native.prevent="SeeOne(scope.row.oId)"
                 type="text"
                 size="small">
-                查看
+                查看详情
               </el-button>
               <!--<el-popover
                 v-if="scope.row.oStatus==5"
@@ -102,12 +110,12 @@
                 发货
               </el-button>
 
-              <!--<el-button
+              <el-button
                 v-if="scope.row.oStatus==5"
                 @click.native.prevent="agreeReturnGoods(scope.row.oId)"
                 type="text"
                 size="small">
-                同意
+                同意退货
               </el-button>
               <el-button
                 v-if="scope.row.oStatus==5"
@@ -115,10 +123,20 @@
                 type="text"
                 size="small">
                 拒绝
-              </el-button>-->
-
+              </el-button>
+              <el-button
+                v-if="scope.row.oStatus==6||scope.row.oStatus==7"
+                @click.native.prevent="openShopReturnGoodsCause(scope.row.oId)"
+                type="text"
+                size="small"
+                :disabled="true"
+              >
+                退货已完成
+              </el-button>
             </template>
           </el-table-column>
+
+
         </el-table>
         <!--分页插件-->
         <el-pagination
@@ -136,7 +154,9 @@
       <el-dialog
         title="订单详情"
         :visible.sync="dialogVisible"
-        width="50%">
+        width="50%"
+        :close-on-click-modal="false"
+      >
         <div class="width100 order_table_c">
           <table class="width100"
                  v-loading="detialLoading"
@@ -227,6 +247,18 @@
                 {{orderInfo.uGetTime}}
               </td>
             </tr>
+            <tr class="width100" v-if="orderInfo.uRecause!=null">
+              <td colspan="3">
+                退货理由：
+                {{orderInfo.uRecause}}
+              </td>
+            </tr>
+            <tr class="width100" v-if="orderInfo.sReseason!=null">
+              <td colspan="3">
+                拒绝退货理由：
+                {{orderInfo.sReseason}}
+              </td>
+            </tr>
           </table>
           <!--<el-row :gutter="20" class="border_top_bot">
             <el-col :span="5">
@@ -293,8 +325,15 @@
         title="拒绝退货原因"
         :visible.sync="shopReturnCausedialogVisible"
         width="30%"
+        :close-on-click-modal="false"
         :before-close="handleClose">
-        <el-input v-model="shopReturnGoodsInfo.shopreturnseason" placeholder="请输入拒绝退货理由"></el-input>
+        <el-input
+          type="textarea"
+          :rows="4"
+          maxlength="100"
+          v-model="shopReturnGoodsInfo.shopreturnseason"
+          placeholder="请输入拒绝退货原因"
+        ></el-input>
         <span slot="footer" class="dialog-footer">
           <el-button @click="cancelShopReturnCause">取 消</el-button>
           <el-button type="primary" @click="refuseReturnGoods">确 定</el-button>

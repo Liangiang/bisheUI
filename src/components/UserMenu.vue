@@ -39,10 +39,10 @@
             href: '/userOrder',
             name: '我的订单'
           },
-          {
+          /*{
             href: '/addReport',
             name: '生成报告'
-          },
+          },*/
 
         ],
       }
@@ -67,10 +67,10 @@
           this.activeIndex = 2;
           return;
         }
-        if (to.path == '/addReport') {
+        /*if (to.path == '/addReport') {
           this.activeIndex = 3;
           return;
-        }
+        }*/
         /*if (to.path == '/policyList') {
           this.activeIndex = 4;
         }*/
@@ -114,7 +114,7 @@
     height: 40px;
     line-height: 40px;
     float: right;
-    padding-top: 16px;
+    /*padding-top: 16px;*/
 
     span {
       padding: 0 10px;

@@ -70,7 +70,7 @@
             <span class="levelTitle2">时令好文</span>
           </div>
           <div class="line"></div>
-          <div style="padding: 20px;">
+          <div style="padding: 20px 20px 40px 20px;">
             <showNews :mId="mId" :flag="0"/>
           </div>
         </div>
@@ -351,6 +351,7 @@
   .cardTitleFont :hover {
     color: #FF6666;
   }
+
 
   /*.align-center {
    text-align: center;

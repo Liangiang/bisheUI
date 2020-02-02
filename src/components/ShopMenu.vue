@@ -37,6 +37,10 @@
             href: '/publishGoods',
             name: '上新好物'
           },
+          {
+            href: '/manIndex',
+            name: '时令好文中心'
+          },
           /*{
             href: '/userRegister',
             name: '审核店铺'
@@ -63,6 +67,10 @@
         }
         if (to.path == '/publishGoods') {
           this.activeIndex = 2;
+          return;
+        }
+        if (to.path == '/manIndex') {
+          this.activeIndex = 3;
           return;
         }
         /*if (to.path == '/govermentProjectList') {

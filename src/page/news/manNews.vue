@@ -25,7 +25,10 @@
     <el-dialog
       title="新增好文"
       :visible.sync="AddAnewsVisible"
-      width="60%">
+      width="60%"
+      :close-on-click-modal="false"
+      top="2%"
+    >
       <div>
         <editAdd v-if="AddAnewsVisible" @func="getMsgFormSon" :hId="hId" :flag="0"/>
       </div>

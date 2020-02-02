@@ -92,14 +92,14 @@
                     size="small">
                     收货
                   </el-button>
-                  <el-button
+                  <!--<el-button
                     v-if="scope.row.oStatus==4"
                     type="text"
                     size="small"
                     :disabled="true"
                   >
                     收货成功
-                  </el-button>
+                  </el-button>-->
                   <el-button
                     v-if="scope.row.oStatus==1"
                     type="text"
@@ -108,14 +108,21 @@
                   >
                     待发货
                   </el-button>
-                  <!--<el-button
+                  <el-button
                     v-if="scope.row.oStatus==4"
                     @click.native.prevent="openReturnGoodsCause(scope.row.oId)"
                     type="text"
                     size="small">
                     申请退货
-                  </el-button>-->
-
+                  </el-button>
+                  <el-button
+                    v-if="scope.row.oStatus==5"
+                    type="text"
+                    size="small"
+                    :disabled="true"
+                  >
+                    退货申请中...
+                  </el-button>
                   <!-- <el-popover
                      v-if="scope.row.oStatus==7"
                      placement="top-start"
@@ -138,15 +145,16 @@
                     size="small">
                     店家已拒绝退货申请
                   </el-button>-->
-                  <!--<el-button
+                  <el-button
                     v-if="scope.row.oStatus==6"
                     :disabled="true"
                     type="text"
                     size="small"
                     icon="el-icon-check"
                   >
-                    退货成功
-                  </el-button>-->
+                    退货已完成
+                  </el-button>
+
                   <el-button
                     v-if="scope.row.oStatus==2"
                     type="text"
@@ -175,7 +183,9 @@
       <el-dialog
         title="订单详情"
         :visible.sync="dialogVisible"
-        width="50%">
+        width="50%"
+        :close-on-click-modal="false"
+      >
         <div class="width100 order_table_c">
           <table class="width100"
                  v-loading="detialLoading"
@@ -266,6 +276,18 @@
                 {{orderInfo.uGetTime}}
               </td>
             </tr>
+            <tr class="width100" v-if="orderInfo.uRecause!=null">
+              <td colspan="3">
+                退货理由：
+                {{orderInfo.uRecause}}
+              </td>
+            </tr>
+            <tr class="width100" v-if="orderInfo.sReseason!=null">
+              <td colspan="3">
+                拒绝退货理由：
+                {{orderInfo.sReseason}}
+              </td>
+            </tr>
           </table>
         </div>
       </el-dialog>
@@ -274,8 +296,10 @@
         title="申请退货原因"
         :visible.sync="returnCausedialogVisible"
         width="30%"
-        :before-close="handleClose">
-        <el-input v-model="returnGoodsInfo.returncause" placeholder="请输入退货理由"></el-input>
+        :before-close="handleClose"
+        :close-on-click-modal="false"
+      >
+        <el-input type="textarea" :rows="4" maxlength="100" v-model="returnGoodsInfo.returncause" placeholder="请输入申请退货理由"></el-input>
         <span slot="footer" class="dialog-footer">
           <el-button @click="cancelReturnCause">取 消</el-button>
           <el-button type="primary" @click="AfterSaleService">确 定</el-button>
@@ -364,15 +388,16 @@
       //申请售后服务
       AfterSaleService() {
         console.log('第几个申请售后服务：', this.returnGoodsInfo);
-        if (this.returnGoodsInfo.returncause == '') {
+        if (this.returnGoodsInfo.returncause.trim() == '') {
           this.$message.error("请填写退货原因！")
         } else {
+
           let params = {
-            id: this.returnGoodsInfo.id,
-            orderstatus: '05',
-            returncause: this.returnGoodsInfo.returncause,
+            oId: this.returnGoodsInfo.id,
+            oStatus: 5,
+            uRecause: this.returnGoodsInfo.returncause,
           };
-          axios.post("/api/User/updata_order", params).then(res => {
+          axios.post("/api/order/up", params).then(res => {
             console.log('申请售后服务成功', res.data);
             this.cancelReturnCause();//清空退货理由和id
             this.$message({

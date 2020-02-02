@@ -12,13 +12,13 @@
             <el-input v-model.number="loginForm.phone" placeholder="请输入手机号码" clearable></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
-            <el-input v-model="loginForm.password" placeholder="请输入密码" clearable></el-input>
+            <el-input v-model="loginForm.password" placeholder="请输入密码" clearable show-password></el-input>
           </el-form-item>
           <el-form-item>
             <el-radio-group v-model="loginForm.loginType">
               <el-radio :label="1">我是买家</el-radio>
               <el-radio :label="2">我是卖家</el-radio>
-              <el-radio :label="3">我是管理员</el-radio>
+             <!-- <el-radio :label="3">我是管理员</el-radio>-->
             </el-radio-group>
           </el-form-item>
           <el-row :gutter="20">

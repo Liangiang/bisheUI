@@ -3,15 +3,17 @@
     ========={{this.mId}}==========
     <div v-loading="loading">
       <div v-for="item in news" :key="item.hId">
-        <el-row>
+        <el-row class="news_row">
           <el-col :span="16">
-            <div class="" style="font-size: 16px;font-weight: bolder;cursor: pointer;" @click="getAnew(item.hId)">
+            <div @click="getAnew(item.hId)" style="font-size: 16px;font-weight: bolder;cursor: pointer;">
               {{item.title}}
             </div>
           </el-col>
-          <el-col :span="5">
+          <el-col :span="flag==1 ? 5 : 8">
             <!--style="text-align: right"-->
-            {{item.insertTime}}
+            <div @click="getAnew(item.hId)" style="cursor: pointer; text-align: center;">
+              {{item.insertTime}}
+            </div>
           </el-col>
           <el-col :span="3" v-if="flag==1">
             <el-button
@@ -45,17 +47,23 @@
     <el-dialog
       title="好文详情"
       :visible.sync="AnewsDialogVisible"
-      width="60%">
-      <div>
+      width="60%"
+      top="2%"
+      :close-on-click-modal="false"
+    >
+      <div class="a_news_box">
         <a-news v-if="AnewsDialogVisible" :hId="hId"/>
       </div>
     </el-dialog>
     <el-dialog
       title="好文编辑"
+      top="2%"
       :visible.sync="editAnewsVisible"
-      width="60%">
+      width="60%"
+      :close-on-click-modal="false"
+    >
       <div>
-        <editAdd v-if="editAnewsVisible"  :hId="hId" :flag="1"/>
+        <editAdd v-if="editAnewsVisible" :hId="hId" :flag="1"/>
       </div>
     </el-dialog>
   </div>
@@ -174,6 +182,36 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
+  img {
+    border-style: none;
+    width: 100% !important;
+  }
+
+  /*.el-dialog .el-dialog__body {
+    max-height: 455px !important;
+    overflow: auto;
+  }*/
+
+  .a_news_box {
+    max-height: 430px !important;
+    min-height: 300px !important;
+    width: 100% !important;
+    overflow: auto;
+    img {
+      width: 100% !important;
+    }
+  }
+
+  #aNews {
+    width: 100% !important;
+    img {
+      width: 100% !important;
+    }
+  }
+
+  .news_row:hover {
+    background: rgba(160, 207, 255, 0.7);
+  }
 </style>

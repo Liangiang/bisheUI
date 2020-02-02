@@ -28,7 +28,7 @@
           <span @click="toLogin()">登录</span>
         <span @click="toShopRegist()">开店</span>
     </span>-->
-      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" >
         <span>请先登录再进行查看</span>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
@@ -240,8 +240,8 @@
   }
 
   .index-menu {
-    padding: 20px;
-    height: 110px;
+    height: 60px;
+    padding-right: 20px;
     .l {
       height: 50px;
     }

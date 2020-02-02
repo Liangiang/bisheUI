@@ -46,7 +46,7 @@
                      </span>-->
                   </div>
                   <div class="marg_top10 marg_bot10">
-                    分类：{{goodsInfo.typeName}}
+                    规格：{{goodsInfo.typeName}}
                     <!--<el-radio-group v-model="buyInfo.classifyname">
                       <el-radio v-for="goodsClassify in goodsInfo.goodsClassifyList" :label="goodsClassify.classifyname"
                                 :key="goodsClassify.id" border size="medium">
@@ -95,21 +95,21 @@
             <div style="width: 75%;margin-left: 20px;">
               <el-row>
                 <el-col :span="8">
-                  品牌：{{goodsInfo.brand}}
+                  品牌：{{goodsInfo.gBrand}}
                 </el-col>
                 <el-col :span="8">
-                  产地：{{goodsInfo.producearea}}
+                  产地：{{goodsInfo.produceArea}}
                 </el-col>
                 <el-col :span="8">
-                  适用肤质：{{goodsInfo.fitskin}}
+                  主要功效：{{goodsInfo.mainEffect}}
                 </el-col>
               </el-row>
               <el-row>
                 <el-col :span="8">
-                  保质期：{{goodsInfo.shelflife}}
+                  保质期：{{goodsInfo.gShelfLife}}
                 </el-col>
                 <el-col :span="8">
-                  规格：{{goodsInfo.goodsnorms}}
+                  规格：{{goodsInfo.typeName}}
                 </el-col>
                 <el-col :span="8">
                   适用人群：{{goodsInfo.fitcrowd}}
@@ -121,7 +121,12 @@
         </div>
       </div>
     </div>
-    <el-dialog title="提示" :visible.sync="LogindialogVisible" width="30%">
+    <el-dialog
+      title="提示"
+      :visible.sync="LogindialogVisible"
+      width="30%"
+      :close-on-click-modal="false"
+    >
       <span>请先登录再进行查看</span>
       <span slot="footer" class="dialog-footer">
           <el-button @click="LogindialogVisible = false">取 消</el-button>
@@ -246,8 +251,9 @@
           /*if (this.buyInfo.classifyname == '') {
             this.$message.error('请选择商品分类！');
           } else {*/
+
           this.buyInfo.gId = this.goodsInfo.gId;
-          this.buyInfo.id = this.goodsInfo.id;
+          this.buyInfo.id = this.$route.query.id;
           console.log('加入购物车', this.buyInfo);
           axios.post("/api/shoppingCar/add", this.buyInfo).then(res => {
             console.log('加入购物车信息', res.data);

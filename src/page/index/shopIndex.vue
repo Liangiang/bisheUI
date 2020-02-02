@@ -100,7 +100,9 @@
     <el-dialog
       title="宝贝详情"
       :visible.sync="dialogVisible"
-      width="50%">
+      width="50%"
+      :close-on-click-modal="false"
+    >
       <el-form :model="goodsForm" ref="goodsForm" label-width="120px">
         <el-form-item label="好物名称" prop="gName">
           <el-input :disabled="SeeDisabled" v-model="goodsForm.gName"></el-input>
@@ -179,7 +181,7 @@
           shopid: sessionStorage.getItem("userId"),
           goodsname: '',//商品名称
           title: '',//标题
-          mainimgurl: require("E:/redLipShopUIandSSM/redLipImg/innisfree/ru.jpg"),//主图
+          imageUrl: require("E:/redLipShopUIandSSM/redLipImg/innisfree/ru.jpg"),//主图
           price: '',//单价
           spellFig: true,//是否拼团
           spellprice: '',//拼团价格
@@ -259,6 +261,8 @@
       updataGoodsForm(form) {
         this.$refs.goodsForm.validate(valid => {
           if (valid) {
+
+            console.log('提交修改商品', this.goodsForm);
             axios.post("/api/goods/up_goods", this.goodsForm).then(res => {
               console.log('提交修改商品', res);
               if (res.data == 1) {
@@ -349,8 +353,9 @@
         this.imageUrl = URL.createObjectURL(file.raw);
         console.log('imageUrl', URL.createObjectURL(file.raw));
         if (res.code == 200 | res.code == '200') {
-          this.goodsForm.mainimgurl = res.filePath;
-          //this.imageUrl = res.filePath;
+
+          this.imageUrl = res.filePath;
+          this.goodsForm.imgUrl = res.filePath;
           this.$message({
             showClose: true,
             message: '上传成功',

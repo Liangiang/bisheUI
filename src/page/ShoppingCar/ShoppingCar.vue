@@ -179,6 +179,7 @@
           currentPage: this.currentPage,
           pageSize: this.pageSize,
         };
+        console.log('所有购物车信息params',params)
         axios.post("/api/shoppingCar/selAll", params).then(res => {
           console.log('所有购物车信息', res.data);
           this.shoppingCarLoading = false;
