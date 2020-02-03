@@ -2,10 +2,8 @@
   <div id="beforeUserOrder">
     <div class="width1024">
       <div class="blockDiv blockDivTop" style="padding-bottom: 50px;margin-bottom: 35px;">
-        <div>
-          <b class="levelTitlebar">
-          </b>
-          <b class="tiao2"></b>
+        <div class="title_box">
+          <span class="title_span">认</span>
           <span class="levelTitle2">确认信息</span>
         </div>
         <div class="line"></div>
@@ -33,7 +31,7 @@
               <el-col :span="10">
                 <el-row>
                   <el-col :span="6">
-                    <img :src="item.mainimgurl" style="width: 100px;height: 100px;"/>
+                    <img :src="item.imgUrl" style="width: 100px;height: 100px;"/>
                   </el-col>
                   <el-col :span="18">
                     {{item.gName}}
@@ -67,7 +65,7 @@
                 <span v-if="item.spellflag==0">
                 {{item.price*item.buynum}}
               </span>-->
-                <span>{{item.countPrice}}</span>
+                <span>{{item.countPrice }}</span>
               </el-col>
             </el-row>
 
@@ -120,14 +118,14 @@
                 <div>
                   <span style="font-size: 14px;font-weight: bolder;"> 共计：</span>
                   <span
-                    style="color: red;font-weight: bolder;font-size: 16px;"> ￥{{beforeOrderData[0].countPrice}}</span>
+                    style="color: red;font-weight: bolder;font-size: 16px;"> ￥{{beforeOrderData[0].countPrice }}</span>
                 </div>
               </div>
             </el-col>
             <el-col :span="24" style="text-align: center;padding-right: 20px; padding-bottom: 10px;">
 
               <el-button @click="cancelRouter">取消</el-button>
-              <el-button type="danger" @click="buyNow">下订单</el-button>
+              <el-button type="primary" @click="buyNow">下订单</el-button>
             </el-col>
           </el-row>
         </div>

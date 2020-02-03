@@ -2,10 +2,8 @@
   <div id="goodsInfo">
     <div class="width1024">
       <div class="blockDiv blockDivTop" style="padding-bottom: 50px;">
-        <div>
-          <b class="levelTitlebar">
-          </b>
-          <b class="tiao2"></b>
+        <div class="title_box">
+          <span class="title_span">详</span>
           <span class="levelTitle2">商品详情</span>
         </div>
         <div class="line"></div>
@@ -321,6 +319,6 @@
 
 <style scoped>
   #goodsInfo {
-    background: #fff;
+    /*background: #fff;*/
   }
 </style>

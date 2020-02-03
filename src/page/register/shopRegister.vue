@@ -5,7 +5,7 @@
         <div class="bot20">
           <el-card shadow="always">
             <div slot="header" class="clearfix">
-              <span>欢迎注册店铺</span>
+              <span>欢迎注册商铺</span>
             </div>
             <div>
               <el-form ref="form" :model="registrform" label-width="100px" :rules="rules">
@@ -26,13 +26,13 @@
                 <div class="move moveBefore" v-move1="registrform"></div>
                 </div>
                 </el-form-item>-->
-                <el-form-item label="短信验证">
+                <!--<el-form-item label="短信验证">
                   <el-input v-model="registrform.verificationcode" placeholder="请输入验证码" clearable style="width:75%;">
                   </el-input>
                   <el-button id="yzm" style="float:right;width: 23%;" type="primary" @click="send()"
                              :disabled="disabled">{{yzmbtn}}
                   </el-button>
-                </el-form-item>
+                </el-form-item>-->
                 <el-form-item label="登录密码" prop="sPassword">
                   <el-input v-model="registrform.sPassword"
                             placeholder="请输入登录密码"
@@ -46,18 +46,18 @@
                             type="password"></el-input>
                 </el-form-item>
 
-                <el-form-item label="商铺地址" prop="address">
+                <el-form-item label="商铺地址" prop="sAddress">
 
                   <el-input type="textarea"
                             :rows="2"
-                            v-model="registrform.address"
+                            v-model="registrform.sAddress"
                             placeholder="请输入商铺地址"
                             clearable>
                   </el-input>
                 </el-form-item>
-                <el-form-item label="经营许可证号" prop="sBusinessLicense">
+                <!--<el-form-item label="经营许可证号" prop="sBusinessLicense">
                   <el-input v-model="registrform.sBusinessLicense" placeholder="请输入店铺经营许可证号" clearable></el-input>
-                </el-form-item>
+                </el-form-item>-->
                 <el-form-item label="商铺邮箱" prop="sEmail">
                   <el-input v-model="registrform.sEmail" placeholder="请输入店铺邮箱" clearable></el-input>
                 </el-form-item>
@@ -203,7 +203,7 @@
               trigger: "blur" //何事件触发
             },
           ],//经营许可证号
-          address: [
+          sAddress: [
             {
               required: true, //是否必填
               message: "店铺地址不能为空", //规则
@@ -281,6 +281,8 @@
 <style scoped>
   .shopRegister {
     /*background-color: #dd6161;*/
+    width: 100%;
+    background: url("./../../assets/img/loginbg.jpg");
   }
 
   .el-card {

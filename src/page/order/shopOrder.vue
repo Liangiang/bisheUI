@@ -566,7 +566,7 @@
     width: 100%;
     text-align: center;
     background-color: #fff;
-    border-bottom: 1px solid #FF6666;
+    border-bottom: 1px solid #409EFF;
     cursor: pointer;
   }
 
@@ -579,19 +579,19 @@
   .tabstyle7:hover {
     border-bottom: 0px;
     background-color: #fff;
-    border-left: 1px solid #FF6666;
-    border-top: 1px solid #FF6666;
-    border-right: 1px solid #FF6666;
-    color: #FF6666;
+    border-left: 1px solid #409EFF;
+    border-top: 1px solid #409EFF;
+    border-right: 1px solid #409EFF;
+    color: #409EFF;
 
   }
 
   .active {
     border-bottom: 0px;
     background-color: #fff;
-    border-left: 1px solid #FF6666;
-    border-top: 1px solid #FF6666;
-    border-right: 1px solid #FF6666;
-    color: #FF6666;
+    border-left: 1px solid #409EFF;
+    border-top: 1px solid #409EFF;
+    border-right: 1px solid #409EFF;
+    color: #409EFF;
   }
 </style>

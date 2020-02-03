@@ -60,7 +60,8 @@
 }
 
 .goods-card:hover {
-  border: #FF6666 solid 1px;
+  border: #409EFF solid 2px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.9);
 }
 
 /*商品卡片---照片*/
@@ -78,7 +79,7 @@
 }
 
 .cardTitleFont :hover {
-  color: #FF6666;
+  color: #409EFF;
 }
 
 .cardMoney {
@@ -118,6 +119,7 @@
 }*/
 .title_box {
   padding: 5px;
+  background: linear-gradient(to top, rgb(160, 207, 255) 5%,#ffffff 100%);
 }
 
 .title_span {
@@ -159,6 +161,10 @@
 /*上间距10*/
 .marg_top10 {
   margin-top: 10px;
+}
+/*上间距10*/
+.padd_top10 {
+  padding-top: 10px;
 }
 
 /*下间距10*/

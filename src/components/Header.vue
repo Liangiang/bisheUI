@@ -2,6 +2,8 @@
   <div class="header">
     <div class="index-menu">
       <a href="#/index">
+        <icon class="el-icon-hot-water logo-img"></icon>
+        <span class="logo-text">养生平台</span>
         <!--<img src="../assets/img/logo.jpg" class="logo l">-->
       </a>
 
@@ -28,7 +30,7 @@
           <span @click="toLogin()">登录</span>
         <span @click="toShopRegist()">开店</span>
     </span>-->
-      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" >
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
         <span>请先登录再进行查看</span>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
@@ -262,8 +264,16 @@
 
   .logo-img {
     height: 40px;
-    margin-top: 10px;
+    font-size: 50px;
+    margin-left: 40px;
     float: left;
+  }
+  .logo-text{
+    font-size: 30px;
+    float: left;
+    line-height: 60px;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    cursor: pointer;
   }
 
   .user-img {

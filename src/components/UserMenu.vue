@@ -97,6 +97,7 @@
         this.$router.push({
           path: '/userInfo'
         });
+        this.activeIndex = 10;
       },
     },
 //通过watch来监听message是否改变

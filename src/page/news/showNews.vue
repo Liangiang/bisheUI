@@ -1,6 +1,6 @@
 <template>
   <div id="showNews">
-    ========={{this.mId}}==========
+
     <div v-loading="loading">
       <div v-for="item in news" :key="item.hId">
         <el-row class="news_row">

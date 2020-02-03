@@ -24,13 +24,13 @@
                 <div class="move moveBefore" v-move1="registrform"></div>
                 </div>
                 </el-form-item>-->
-                <el-form-item label="短信验证">
+                <!--<el-form-item label="短信验证">
                   <el-input v-model="registrform.verificationcode" placeholder="请输入验证码" clearable style="width:75%;">
                   </el-input>
                   <el-button id="yzm" style="float:right;width: 23%;" type="primary" @click="send()"
                              :disabled="disabled">{{yzmbtn}}
                   </el-button>
-                </el-form-item>
+                </el-form-item>-->
                 <el-form-item label="登录密码" prop="password">
                   <el-input v-model="registrform.password" placeholder="请输入登录密码" clearable type="password"></el-input>
                 </el-form-item>
@@ -318,5 +318,7 @@
 <style scoped>
   #userRegister {
     /*background-color: #dd6161;*/
+    width: 100%;
+    background: url("./../../assets/img/loginbg.jpg");
   }
 </style>

@@ -4,7 +4,7 @@
           <span v-for="(item,index) in tabsshop" :key="index" @click="toNext(item.href,index)"
                 :class="{active: activeIndex == index}">
             {{item.name}}</span>
-      <span>
+      <span @click="toShopInfo">
         欢迎{{shopName}}店主！
       </span>
       <span @click="outLogin">
@@ -100,9 +100,16 @@
         sessionStorage.removeItem("userName");
         sessionStorage.setItem("userType", JSON.stringify(0));
         this.$emit("setUserType", 0);
-      }
-    },
+      },
 
+      //店铺信息
+      toShopInfo() {
+        this.$router.push({
+          path: '/shopInfo'
+        });
+        this.activeIndex = 10;
+      },
+    },
   }
 </script>
 

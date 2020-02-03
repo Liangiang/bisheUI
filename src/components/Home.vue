@@ -47,4 +47,10 @@
     border-bottom-color: rgb(160, 207, 255);
     padding: 20px;
   }
+  #Home .el-footer{
+    background: white;
+    border-top: 3px solid;
+
+    border-top-color: rgb(160, 207, 255);
+  }
 </style>

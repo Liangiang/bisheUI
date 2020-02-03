@@ -20,12 +20,13 @@ import beforeUserOrder from '@/page/order/beforeUserOrder'//顾客-立即购买
 import userOrder from '@/page/order/userOrder'//顾客-订单中心
 import pay from '@/page/pay/pay'//顾客-支付页面
 import addReport from '@/page/report/add'//顾客-支付页面
-// import userInfo from '@/page/userInfo/userInfo'//顾客-顾客信息页面
+import userInfo from '@/page/userInfo/userInfo'//顾客-顾客信息页面
 
 import shopRegister from '@/page/register/shopRegister'//店铺-注册
 import shopIndex from '@/page/index/shopIndex'//店铺-首页
 import shopOrder from '@/page/order/shopOrder'//店铺-订单中心
 import publishGoods from '@/page/publishGoods/publishGoods'//店铺-商品发布
+import shopInfo from '@/page/shopInfo/shopInfo'//店铺-店铺信息页面
 //
 import goodsInfo from '@/page/goodsInfo/goodsInfo'//商品详情
 
@@ -101,6 +102,26 @@ export const routes = [
       {
         path: "/ShoppingCar",
         component: ShoppingCar,
+        isPage: true,
+        hidden: true,
+        name: "",
+        meta: {
+          keepAlive: true
+        }
+      },
+    ]
+  },
+  //顾客=============个人中心---userInfo
+  {
+    path: "/userInfo",
+    component: Home,
+    name: "个人中心",
+    isPage: true,
+    hidden: true,
+    children: [
+      {
+        path: "/userInfo",
+        component: userInfo,
         isPage: true,
         hidden: true,
         name: "",
@@ -198,6 +219,7 @@ export const routes = [
       },
     ],
   },
+
   //店铺============订单中心---shopOrder
   {
     path: "/shopOrder",
@@ -232,7 +254,26 @@ export const routes = [
       },
     ],
   },
-
+//店铺=============个人中心---shopInfo
+  {
+    path: "/shopInfo",
+    component: Home,
+    name: "个人中心",
+    isPage: true,
+    hidden: true,
+    children: [
+      {
+        path: "/shopInfo",
+        component: shopInfo,
+        isPage: true,
+        hidden: true,
+        name: "",
+        meta: {
+          keepAlive: true
+        }
+      },
+    ]
+  },
   //管理员=============首页
   {
     path: "/index",

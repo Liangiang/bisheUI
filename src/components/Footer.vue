@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="line"></div>
+    <!--<div class="line"></div>-->
     <!--<div v-for="item in items" :key="item.id">
       <div style="width: 400px;height: 200px;background: #f00;margin: 10px;" @mouseenter="onMouseOver(item.id)"
            @mouseleave="omMouseOut(item.id)">
@@ -128,11 +128,11 @@
     height: 40px;
     width: 40px;
     background-color: transparent; /* Can be set to transparent */
-    border: 2px #FF6666 solid;
+    border: 2px #409EFF solid;
     -webkit-border-radius: 100px;
     font-size: 1.6rem;
     /*font-weight: bold;*/
-    color: #FF6666;
+    color: #409EFF;
     line-height: 40px;
     text-align: center;
     float: left;

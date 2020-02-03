@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <div>
-      <div class="block " style="background: white;">
+      <div class="block padd_top10" style="background: white;">
         <!--<span class="demonstration">默认 Hover 指示器触发</span>-->
         <el-carousel height="400px" type="card">
           <el-carousel-item v-for="item in homeRollImg" :key="item.herf">
@@ -349,7 +349,7 @@
   }
 
   .cardTitleFont :hover {
-    color: #FF6666;
+    color: #409EFF;
   }
 
 

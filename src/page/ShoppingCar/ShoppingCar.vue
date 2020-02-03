@@ -224,7 +224,7 @@
           uId: sessionStorage.getItem("userId"),//用户id
           oPrice: row.price,//单价
           oTypeName: row.typeName,
-          countPrice: row.price * row.purchaseNum,//总价
+          countPrice: this.DouNumber(row.price * row.purchaseNum),//总价
           oNum: row.purchaseNum,//购买数量
         });
         console.log("结算当前选中的商品!", params);
@@ -238,6 +238,13 @@
       //计算每个商品小计价格
       allOnePrice(row) {
         return row.price * row.purchaseNum;
+      },
+      DouNumber(data){
+        if (data != undefined) {
+          return data.toFixed(2);
+        } else {
+          return data;
+        }
       },
       //购买数量改变
       byNumChange(row) {
